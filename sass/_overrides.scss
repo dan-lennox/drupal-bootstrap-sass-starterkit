@@ -1,8 +1,3 @@
-// Media query variables.
-$tablet:  #{"screen and (min-width: ${screen-sm-min})"};
-$normal:  #{"screen and (min-width: ${screen-md-min})"};
-$wide:    #{"screen and (min-width: ${screen-lg-min})"};
-
 // Drop shadows.
 @mixin box-shadow($shadow)
 {
@@ -105,16 +100,21 @@ body {
   }
 }
 
+// Media query variables.
+$tablet:  "screen and (min-width: #{$screen-sm-min})";
+$normal:  "screen and (min-width: #{$screen-md-min})";
+$wide:    "screen and (min-width: #{$screen-lg-min})";
+
 // Default navbar.
 .navbar {
   &.container {
-    @media $tablet {
+    @media #{$tablet} {
       max-width: (($container-sm - $grid-gutter-width));
     }
-    @media $normal {
+    @media #{$normal} {
       max-width: (($container-md - $grid-gutter-width));
     }
-    @media $wide {
+    @media #{$wide} {
       max-width: (($container-lg - $grid-gutter-width));
     }
   }
@@ -172,7 +172,7 @@ body {
   margin-right: -15px;
   padding-left: 15px;
   padding-right: 15px;
-  @media $tablet {
+  @media #{$tablet} {
     margin-right: 0;
     padding-left: 0;
   }
@@ -181,7 +181,7 @@ body {
 // Navigation.
 ul.secondary {
   float: left;
-  @media $tablet {
+  @media #{$tablet} {
     float: right;
   }
 }
@@ -222,7 +222,7 @@ form#search-block-form {
 .navbar #block-search-form {
   float: none;
   margin: 5px 0 5px 5px;
-  @media $normal {
+  @media #{$normal} {
     float: right;
   }
 
@@ -324,7 +324,7 @@ table.sticky-header {
 .filter-help {
   margin-top: 5px;
   text-align: center;
-  @media $tablet {
+  @media #{$tablet} {
     float: right;
   }
   .glyphicon {
